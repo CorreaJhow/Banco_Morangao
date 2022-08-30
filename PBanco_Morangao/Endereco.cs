@@ -10,24 +10,27 @@ namespace PBanco_Morangao
 {
     internal class Endereco
     {
-        String Bairro;
-        String Rua;
-        String Numero;
-        String Cidade;
-        int Cep;
+        public String Bairro { get; set; }
+        public String Rua { get; set; }
+        public String Numero { get; set; }
+        public String Cidade { get; set; }
 
-        public Endereco(String bairro, String rua, String numero, String cidade, int cep)
+        public Endereco(String bairro, String rua, String numero, String cidade)
         {
             this.Bairro = bairro;
             this.Rua = rua;
             this.Numero = numero;
-            this.Cidade = cidade;
-            this.Cep = cep;
+            this.Cidade = cidade;;
         }
 
-        public Endereco(String cidade)
+        public Endereco()
         {
-            this.Cidade = cidade;
+         
+        }
+
+        public override string ToString()
+        {
+            return "cidade: " + this.Cidade;
         }
 
 
