@@ -22,15 +22,6 @@ namespace PBanco_Morangao
         {
 
         }
-
-        public Pessoa(string nome, long cpf, string email, long telefone, DateTime DataNascimento)
-        {
-            this.Nome = nome;
-            this.Cpf = cpf;
-            this.Email = email;
-            this.Telefone = telefone;
-            this.DataNascimento = DataNascimento;
-            Endereco endereco = new Endereco();
-        }
+            
     }
 }
