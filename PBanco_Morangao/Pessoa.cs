@@ -10,65 +10,12 @@ namespace PBanco_Morangao
 {
     internal class Pessoa
     {
-        public String Nome
-        {
-            get
-            {
-                return Nome;
-            }
-            set
-            {
-                Console.WriteLine("Digite algum nome: ");
-                Nome = Console.ReadLine();
-            }
-        }
-        public long Cpf
-        {
-            get
-            {
-                return Cpf;
-            }
-            set
-            {
-                Console.WriteLine("Digite um numero de CPF: ");
-                Cpf = (long.Parse(Console.ReadLine()));
-            }
-        }
-        public String Email
-        {
-            get
-            {
-                return Email;
-            }
-            set
-            {
-                Console.WriteLine("Digite seu email: ");
-            }
-        }
-        public long Telefone
-        {
-            get
-            {
-                return Telefone;
-            }
-            set
-            {
-                Console.WriteLine("Digite seu numero de telefone: ");
-                Telefone = (long.Parse(Console.ReadLine()));    
-            }
-        }
-        public DateTime DataNascimento
-        {
-            get
-            {
-                return DataNascimento;
-            }
-            set
-            {
-                Console.WriteLine("Digite sua data de nascimento: ");
-                DataNascimento = (DateTime.Parse(Console.ReadLine()));
-            }
-        }
+        public String Nome { get; set; }
+        public long Cpf { get; set; }
+        public String Email { get; set; }
+        public long Telefone { get; set; }
+        public DateTime DataNascimento { get; set; }
+
         public Endereco Endereco;
 
         public Pessoa()

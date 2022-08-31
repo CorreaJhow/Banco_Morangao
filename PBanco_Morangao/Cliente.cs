@@ -8,10 +8,8 @@ namespace PBanco_Morangao
 {
     internal class Cliente : Pessoa
     {
-        Pessoa pessoa;
         public double FaixaSalarial { get; set; }
-        
-
+       
         void SolicitarAberturaConta()
         {
             

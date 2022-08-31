@@ -14,25 +14,10 @@ namespace PBanco_Morangao
         public String Rua { get; set; }
         public String Numero { get; set; }
         public String Cidade { get; set; }
-
-        public Endereco(String bairro, String rua, String numero, String cidade)
-        {
-            this.Bairro = bairro;
-            this.Rua = rua;
-            this.Numero = numero;
-            this.Cidade = cidade;;
-        }
-
+  
         public Endereco()
         {
          
         }
-
-        public override string ToString()
-        {
-            return "cidade: " + this.Cidade;
-        }
-
-
     }
 }

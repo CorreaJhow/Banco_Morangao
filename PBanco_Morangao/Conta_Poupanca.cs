@@ -6,15 +6,17 @@ using System.Threading.Tasks;
 
 namespace PBanco_Morangao
 {
-    internal class Gerente:Funcionario
+    internal class Conta_Poupanca : Conta
     {
+        public String Numero { get; set; }
+        public double SaldoPoupanca { get; set; }
 
-        void AutorizarAberturaConta()
+        public Conta_Poupanca()
         {
 
         }
 
-        void AutorizarEmprestimo()
+        void ResgatarPoupanca()
         {
 
         }
