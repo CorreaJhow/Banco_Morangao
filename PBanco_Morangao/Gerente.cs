@@ -8,13 +8,21 @@ namespace PBanco_Morangao
 {
     internal class Gerente:Funcionario
     {
-
-        void AutorizarAberturaConta()
+        public Gerente(string nome, int numeroRegistro) : base(nome, numeroRegistro)
         {
 
         }
 
-        void AutorizarEmprestimo()
+        public void AutorizarAberturaConta(double salary)
+        {
+            if (salary < 500)
+            {
+                Console.WriteLine("Sua renda não atingiu a renda minima aceita, a abertura da conta foi negada!");
+            } else
+                Console.WriteLine("Sua conta foi aceita e criada em nosso banco");         
+        }
+
+        public void AutorizarEmprestimo()
         {
 
         }

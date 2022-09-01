@@ -10,5 +10,9 @@ namespace PBanco_Morangao
     {
         public int NumeroRegistro { get; set; }
 
+        public Funcionario(string nome, int numeroRegistro):base(nome)
+        {
+            NumeroRegistro = numeroRegistro;
+        }
     }
 }

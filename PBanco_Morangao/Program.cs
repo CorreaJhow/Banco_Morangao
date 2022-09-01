@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace PBanco_Morangao
 {
@@ -7,7 +8,6 @@ namespace PBanco_Morangao
         static void Main(string[] args)
         {
             int escolha = 0;
-            Console.WriteLine();
             Console.WriteLine("Bem-vindo ao sistema do Banco Morangão");
             while (escolha != 1 && escolha != 2 && escolha != 3)
             {
@@ -25,29 +25,34 @@ namespace PBanco_Morangao
                     Console.WriteLine("Aperte alguma tecla para inicar o processo...");
                     Console.ReadKey();
                     Console.Clear();
-                    Cliente PrimeiroCliente = new Cliente();
-                    Endereco PrimeiroEndereco = new Endereco();
-                    PrimeiroCliente.Endereco = PrimeiroEndereco;
-                    PrimeiroCliente.CadastrarCliente();
-                    Console.WriteLine("");
-                    Console.WriteLine(PrimeiroCliente.ToString());
 
-                    Console.WriteLine("O Senhor " + PrimeiroCliente.Nome + " gostaria de Solicitar uma conta com nossa agencia do *Banco Morangao*\n01.Sim\n02.Nao");
+                    Agente_Bancario agente = new Agente_Bancario("David",1234); //agente bancario 
+                    Gerente gerente = new Gerente("Larissa", 5050); //gerente bancario
+
+                    Cliente PrimeiroCliente = new Cliente(); //objeto de cliente 
+                    Endereco PrimeiroEndereco = new Endereco(); //objeto de endereço 
+                    PrimeiroCliente.Endereco = PrimeiroEndereco; //associação
+
+                    PrimeiroCliente.CadastrarCliente(); //realizar cadastro 
+                    Console.WriteLine("");
+                    Console.WriteLine(PrimeiroCliente.ToString()); //devolver valor.
+
+                    Console.WriteLine("O Senhor(a) " + PrimeiroCliente.Nome + " gostaria de Solicitar uma conta em nossa agencia do *Banco Morangao*\n01.Sim\n02.Nao");
                     int escolhaContinuacao = int.Parse(Console.ReadLine());
                     if (escolhaContinuacao == 1)
                     {
-                        Console.WriteLine("Ok! Vamos seguir com o cadastro em nosso banco!");                     
-                        double valorSalario = PrimeiroCliente.SolicitarAberturaConta();
+                        Console.WriteLine("Ok! Vamos seguir com a criação de conta em nosso banco!");                     
+                        PrimeiroCliente.SolicitarAberturaConta();
+                        agente.AvaliarTipoConta(PrimeiroCliente.FaixaSalarial);
+                        gerente.AutorizarAberturaConta(PrimeiroCliente.FaixaSalarial);
 
+                        //ir pro menu do banco.
                     }
                     else if (escolhaContinuacao == 2)
                     {
                         Console.WriteLine("Ok!! Vamos voltar ao menu inicial");
                         escolha = 4;
                     }
-
-
-
                 }
                 else if (escolha == 3)
                 {

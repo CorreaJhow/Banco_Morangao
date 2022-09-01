@@ -10,7 +10,7 @@ namespace PBanco_Morangao
 {
     internal class Pessoa
     {
-        public String Nome { get; set; }
+        public string Nome { get; set; }
         public String Cpf { get; set; }
         public String Email { get; set; }
         public long Telefone { get; set; }
@@ -21,7 +21,14 @@ namespace PBanco_Morangao
         public Pessoa()
         {
 
+
         }
+
+        public Pessoa(string nome)
+        {
+            Nome = nome;
+        }
+
             
     }
 }

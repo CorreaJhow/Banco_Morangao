@@ -15,13 +15,11 @@ namespace PBanco_Morangao
 
         }
         
-        public double SolicitarAberturaConta()
+        public void SolicitarAberturaConta()
         {
-            Console.WriteLine("Informe sua Faixa Salarial para prosseguirmos e anarlisarmos seu tipo de conta e se ela será autorizada: ");
-            FaixaSalarial = double.Parse(Console.ReadLine());
+            Console.WriteLine("De acordo com sua Faixa Salarial vamos prosseguir e analisar seu tipo de conta e se ela será autorizada: ");
             Console.WriteLine("Pressione enter para iniciar o processo.");
             Console.ReadKey();
-            return FaixaSalarial;
         }
 
         public void CadastrarCliente()
@@ -36,6 +34,8 @@ namespace PBanco_Morangao
             this.Telefone = long.Parse(Console.ReadLine());
             Console.WriteLine("Informe sua data de nascimento no modelo (dd/mm/aaaa): ");
             this.DataNascimento = DateTime.Parse(Console.ReadLine());
+            Console.WriteLine("informe sua Faixa Salarial: ");
+            this.FaixaSalarial = double.Parse(Console.ReadLine());
             Console.WriteLine("");
             Console.WriteLine("Correto, agora sobre seu endereço: ");
             Console.WriteLine("Informe seu Bairro: ");
