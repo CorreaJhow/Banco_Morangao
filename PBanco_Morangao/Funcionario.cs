@@ -9,5 +9,6 @@ namespace PBanco_Morangao
     internal class Funcionario : Pessoa
     {
         public int NumeroRegistro { get; set; }
+
     }
 }

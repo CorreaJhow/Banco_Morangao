@@ -11,7 +11,7 @@ namespace PBanco_Morangao
     internal class Pessoa
     {
         public String Nome { get; set; }
-        public long Cpf { get; set; }
+        public String Cpf { get; set; }
         public String Email { get; set; }
         public long Telefone { get; set; }
         public DateTime DataNascimento { get; set; }
