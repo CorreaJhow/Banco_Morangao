@@ -16,9 +16,6 @@ namespace PBanco_Morangao
         {
 
         }
-        void VerLimiteChequeEspecial()
-        {
-
-        }
+   
     }
 }

@@ -52,7 +52,7 @@ namespace PBanco_Morangao
 
         public override string ToString()
         {
-            return "O Cadastro foi efetuado com ***SUCESSO***\nConfira alguns dos dados informados para cadastro do cliente " +this.Nome+ ", no caso foram: \nCPF: " + this.Cpf + 
+            return "\nConfira alguns dos dados informados para cadastro do cliente " +this.Nome+ ", no caso foram: \nCPF: " + this.Cpf + 
                 "\nEmail: " + this.Email + "\nTelefone: " + this.Telefone+ "\nCidade" +this.Endereco.Cidade+ "\nLogradouro: " + this.Endereco.Logradouro; 
         }
 

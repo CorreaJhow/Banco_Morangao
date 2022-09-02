@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace PBanco_Morangao
@@ -22,9 +23,12 @@ namespace PBanco_Morangao
                 Console.WriteLine("Sua conta foi aceita e criada em nosso banco");         
         }
 
-        public void AutorizarEmprestimo()
+        public void AutorizarEmprestimo(double salario, string gerente)
         {
-
+            Console.WriteLine("Olá, sou o gerente " + gerente + " irei averiguar a sua solicitação de emprestimo...");
+            Thread.Sleep(2000);
+            Console.WriteLine("De acordo com seus dados, historico e faixa salarial o seu emprestimo foi autorizado!!");
+            Console.WriteLine("O valor sera equivalente ao seu salario RS" + salario + " moranguinhos x 15, no caso, R$" +(salario * 15) + " moranguinhos, parcelados em 36 vezes. Parabens!");
         }
     }
 }
