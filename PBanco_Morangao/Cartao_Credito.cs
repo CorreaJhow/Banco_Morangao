@@ -18,7 +18,7 @@ namespace PBanco_Morangao
         {
 
         }
-        void DesbloquearCartao()
+        public void DesbloquearCartao()
         {
 
         }

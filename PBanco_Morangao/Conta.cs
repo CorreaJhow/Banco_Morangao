@@ -9,6 +9,8 @@ namespace PBanco_Morangao
 {
     internal class Conta
     {
+
+        public float SaldoContaCorrente { get; set; }
         public int NumeroConta { get; set; }
 
         public String TipoConta { get; set; }
@@ -36,12 +38,9 @@ namespace PBanco_Morangao
         {
 
         }
-        public float RealizarPagamento(float saldo)
+        public float RealizarPagamento(float saldo, float valorPagamento)
         {
-            Console.WriteLine("Por favor, informe o numero da conta a ser paga: ");
-            int numeroConta = int.Parse(Console.ReadLine());
-            Console.WriteLine("Insira o valor da conta a ser pago: ");
-            int valorPagamento = int.Parse(Console.ReadLine());
+            
             float contaPaga = saldo - valorPagamento;
             Console.WriteLine("Pagamento de conta sendo realizada...");
             Thread.Sleep(2000);
@@ -80,5 +79,6 @@ namespace PBanco_Morangao
             Thread.Sleep(2000);
             Console.WriteLine("O valor do seu cheque especial é de: " + (salario * 0.25));
         }
+        //public void menu();
     }
 }
