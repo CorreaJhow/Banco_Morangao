@@ -22,18 +22,5 @@ namespace PBanco_Morangao
         {
 
         }
-        
-        void EmitirExtratoCartao()
-        {
-
-        }
-        void PagarFatura()
-        {
-
-        }
-        void VerVencimentoFatura()
-        {
-
-        }
     }
 }

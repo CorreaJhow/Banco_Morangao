@@ -14,21 +14,25 @@ namespace PBanco_Morangao
 
         }
 
-        public void AutorizarAberturaConta(double salary)
+        public bool AutorizarAberturaConta(double salary)
         {
             if (salary < 500)
             {
                 Console.WriteLine("Sua renda não atingiu a renda minima aceita, a abertura da conta foi negada!");
+                return false;
             } else
-                Console.WriteLine("Sua conta foi aceita e criada em nosso banco");         
+                Console.WriteLine("Sua conta foi aceita e criada em nosso banco");
+                return true;
         }
 
-        public void AutorizarEmprestimo(double salario, string gerente)
+        public float AutorizarEmprestimo(float salario, string gerente)
         {
             Console.WriteLine("Olá, sou o gerente " + gerente + " irei averiguar a sua solicitação de emprestimo...");
             Thread.Sleep(2000);
             Console.WriteLine("De acordo com seus dados, historico e faixa salarial o seu emprestimo foi autorizado!!");
-            Console.WriteLine("O valor sera equivalente ao seu salario RS" + salario + " moranguinhos x 15, no caso, R$" +(salario * 15) + " moranguinhos, parcelados em 36 vezes. Parabens!");
+            Console.WriteLine("O valor do nosso emprestimo é fixo e equivalente ao seu salario x 15, no caso, o salario informado foi: R$" + salario * 15 + " moranguinhos\n esse valor será parcelado em 36 vezes. Parabens!!");
+            float valorEmprestimo = salario * 15;
+            return valorEmprestimo;          
         }
     }
 }
