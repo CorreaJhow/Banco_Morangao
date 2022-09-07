@@ -1,22 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace PBanco_Morangao
 {
     internal class Conta
     {
-
         public float SaldoContaCorrente { get; set; }
         public int NumeroConta { get; set; }
-
         public String TipoConta { get; set; }
-
-        public int Senha { get; set; }
-        public float ValorChequeEspecial { get; set; }
+        public float LimiteChequeEspecial { get; set; } 
 
         public Conta()
         {
@@ -30,16 +23,13 @@ namespace PBanco_Morangao
             Console.WriteLine("Solicitação enviada ao gerente!");
         }
 
-        public void TransferirValor()
-        {
-
-        }
-
-        public void ConsultarExtrato(List<string> ListaExtrato)
+        public void ConsultarExtrato(List<string> ListaExtrato, float saldo, float cheque)
         {
             Console.Clear();
             Console.WriteLine("Voce escolheu a opção: Consultar Extrato.");
+            Console.WriteLine("Seu saldo atual é : " + saldo + " Moranguinhos\nCom Cheque Especial de " + cheque + " Moranguinhos");
             Console.WriteLine("As movimentações realizadas foram:");
+            Console.WriteLine("");
             ListaExtrato.ForEach(i => Console.WriteLine(i));
         }
 
@@ -69,12 +59,12 @@ namespace PBanco_Morangao
             Console.WriteLine("Operação de deposito realizada com sucesso!");
             return resultadoDeposito;
         }
-        public void ConsultarSaldo(float saldo, string nome, float chequeEspecial)
+        public void ConsultarSaldo(float saldo, string nome)
         {
             Console.WriteLine("Voce escolheu a opção: consultar saldo.");
             Console.WriteLine("Consulta de saldo sendo realizada...");
             Thread.Sleep(2000);
-            Console.WriteLine("Querido " + nome + ", no momento seu saldo é de R$" + saldo + " Moranguinhos.\nCom Cheque especial de: " + chequeEspecial + " moranguinhos");
+            Console.WriteLine("Querido " + nome + ", no momento seu saldo é de R$" + saldo + " Moranguinhos.\nCom Cheque especial de: " + LimiteChequeEspecial + " moranguinhos");
         }
         public void VerLimiteChequeEspecial(double salario)
         {
@@ -84,7 +74,6 @@ namespace PBanco_Morangao
             Thread.Sleep(2000);
             Console.WriteLine("O valor do seu cheque especial é de: " + (salario * 0.25) + " Moranguinhos");
         }
-        //public void menu();
     }
 }
 

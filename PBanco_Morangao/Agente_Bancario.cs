@@ -15,24 +15,24 @@ namespace PBanco_Morangao
             this.NumeroRegistro = numeroRegistro;
         }
 
-        public string AvaliarTipoConta(double Salary)
+        public string AvaliarTipoConta(double salario)
         {
-            if (Salary > 0 && Salary <= 1500)
+            if (salario > 0 && salario <= 1500)
             {
-                Console.WriteLine("de acordo com seu salario informado: '" + Salary + "' o tipo de conta foi definido como ***CONTA UNIVERSITARIO***");
-                Console.WriteLine("seguindo os padrões, com essa conta, seu cheque especial é R$" + (Salary * 0.25) + " moranguinhos, e seu limite (cartao de credito) é R$" + (Salary * 2) + " moranguinhos");
+                Console.WriteLine("de acordo com seu salario informado: '" + salario + "' o tipo de conta foi definido como ***CONTA UNIVERSITARIA***");
+                Console.WriteLine("seguindo os padrões, com essa conta, seu cheque especial é R$" + (salario * 0.25) + " Moranguinhos");
                 return "Universitaria";
             }
-            else if (Salary > 1500 && Salary <= 5000)
+            else if (salario > 1500 && salario <= 5000)
             {
-                Console.WriteLine("de acordo com seu salario informado: '" + Salary + "' o tipo de conta foi definido como ***CONTA COMUM***");
-                Console.WriteLine("seguindo os padrões, com essa conta, seu cheque especial é R$" + (Salary * 0.25) + " moranguinhos, e seu limite (cartao de credito) é R$" + (Salary * 2) + " moranguinhos");
+                Console.WriteLine("de acordo com seu salario informado: '" + salario + "' o tipo de conta foi definido como ***CONTA COMUM***");
+                Console.WriteLine("seguindo os padrões, com essa conta, seu cheque especial é R$" + (salario * 0.25) + " Moranguinhos");
                 return "Comum";
             }
-            else //if (Salary > 5000)
+            else 
             {
-                Console.WriteLine("de acordo com seu salario informado: '" + Salary + "' o tipo de conta foi definido como ***CONTA VIP***");
-                Console.WriteLine("seguindo os padrões, com essa conta, seu cheque especial é R$" + (Salary * 0.25) + " moranguinhos, e seu limite (cartao de credito) é R$" + (Salary * 2) + " moranguinhos");
+                Console.WriteLine("de acordo com seu salario informado: '" + salario + "' o tipo de conta foi definido como ***CONTA VIP***");
+                Console.WriteLine("seguindo os padrões, com essa conta, seu cheque especial é R$" + (salario * 0.25) + " Moranguinhos");
                 return "VIP";
             }          
         }

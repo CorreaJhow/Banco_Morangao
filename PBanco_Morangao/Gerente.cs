@@ -14,7 +14,7 @@ namespace PBanco_Morangao
 
         }
 
-        public bool AutorizarAberturaConta(double salary)
+        public bool AutorizarAberturaConta(double salary, int numeroAgencia)
         {
             if (salary < 500)
             {
@@ -22,6 +22,7 @@ namespace PBanco_Morangao
                 return false;
             } else
                 Console.WriteLine("Sua conta foi aceita e criada em nosso banco");
+            Console.WriteLine("Sua agencia foi definida como agencia de Araraquara n°: " + numeroAgencia);
                 return true;
         }
 

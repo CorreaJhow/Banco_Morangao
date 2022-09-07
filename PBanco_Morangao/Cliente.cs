@@ -1,23 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PBanco_Morangao
 {
     internal class Cliente : Pessoa
     {
         public float FaixaSalarial { get; set; }
-       
-        
-        public Cliente()
-        {
+        public Conta Conta { get; set; }
+        public Cliente() { }
+        public Agencia agencia { get; set; }
 
-        }
-        
         public void SolicitarAberturaConta()
         {
             Console.WriteLine("De acordo com sua Faixa Salarial vamos prosseguir e analisar seu tipo de conta e se ela será autorizada: ");
@@ -58,7 +49,7 @@ namespace PBanco_Morangao
                 Console.Write("Valor informado invalido, informe seu salario novamente: ");
                 this.FaixaSalarial = float.Parse(Console.ReadLine());
             }
-            Console.Write("Correto, agora sobre seu endereço: ");
+            Console.WriteLine("Correto, agora sobre seu endereço: ");
             Console.Write("Informe seu Bairro: ");
             this.Endereco.Bairro = Console.ReadLine();
             Console.Write("Informe sua rua ou avenida: ");
@@ -70,14 +61,10 @@ namespace PBanco_Morangao
             Console.Write("Informe seu Estado: ");
             this.Endereco.Estado = Console.ReadLine();
         }
-
         public override string ToString()
         {
             return "Nome: " +this.Nome+ "\nCPF: " + this.Cpf + 
-                "\nEmail: " + this.Email + "\nTelefone: " + this.Telefone+ "\nCidade: " +this.Endereco.Cidade+ "\nRua ou avenida: " + this.Endereco.Logradouro; 
+                "\nEmail: " + this.Email + "\nTelefone: " + this.Telefone+ "\nCidade: " +this.Endereco.Cidade+ "\nBairro: " + this.Endereco.Bairro; 
         }
-    
-
-
     }
 }

@@ -15,5 +15,10 @@ namespace PBanco_Morangao
         {
             Endereco endereco = new Endereco();
         }
+        public int Random(int min, int max)
+        {
+            Random r = new Random();
+            return r.Next(100, 999);
+        }
     }
 }
