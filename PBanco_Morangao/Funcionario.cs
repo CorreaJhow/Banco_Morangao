@@ -8,7 +8,11 @@ namespace PBanco_Morangao
 {
     internal class Funcionario : Pessoa
     {
-        Pessoa nome;
         public int NumeroRegistro { get; set; }
+
+        public Funcionario(string nome, int numeroRegistro):base(nome)
+        {
+            NumeroRegistro = numeroRegistro;
+        }
     }
 }
