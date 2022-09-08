@@ -19,19 +19,19 @@ namespace PBanco_Morangao
         {
             if (salario > 0 && salario <= 1500)
             {
-                Console.WriteLine("de acordo com seu salario informado: '" + salario + "' o tipo de conta foi definido como ***CONTA UNIVERSITARIA***");
+                Console.WriteLine("de acordo com o salario informado: R$ " + salario + " Moranguinhos, o tipo de conta foi definido como ***CONTA UNIVERSITARIA***");
                 Console.WriteLine("seguindo os padrões, com essa conta, seu cheque especial é R$" + (salario * 0.25) + " Moranguinhos");
                 return "Universitaria";
             }
             else if (salario > 1500 && salario <= 5000)
             {
-                Console.WriteLine("de acordo com seu salario informado: '" + salario + "' o tipo de conta foi definido como ***CONTA COMUM***");
+                Console.WriteLine("de acordo com o salario informado: R$ " + salario + " Moranguinhos, o tipo de conta foi definido como ***CONTA COMUM***");
                 Console.WriteLine("seguindo os padrões, com essa conta, seu cheque especial é R$" + (salario * 0.25) + " Moranguinhos");
                 return "Comum";
             }
             else 
             {
-                Console.WriteLine("de acordo com seu salario informado: '" + salario + "' o tipo de conta foi definido como ***CONTA VIP***");
+                Console.WriteLine("de acordo com o salario informado: R$ " + salario + " Moranguinhos, o tipo de conta foi definido como ***CONTA VIP***");
                 Console.WriteLine("seguindo os padrões, com essa conta, seu cheque especial é R$" + (salario * 0.25) + " Moranguinhos");
                 return "VIP";
             }          

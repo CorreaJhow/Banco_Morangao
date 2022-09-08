@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace PBanco_Morangao
 {
@@ -23,12 +18,9 @@ namespace PBanco_Morangao
 
 
         }
-
         public Pessoa(string nome)
         {
             Nome = nome;
-        }
-
-            
+        }          
     }
 }

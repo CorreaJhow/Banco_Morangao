@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace PBanco_Morangao
 {
     internal class Cliente : Pessoa
@@ -11,11 +12,10 @@ namespace PBanco_Morangao
 
         public void SolicitarAberturaConta()
         {
-            Console.WriteLine("De acordo com sua Faixa Salarial vamos prosseguir e analisar seu tipo de conta e se ela será autorizada: ");
+            Console.WriteLine("De acordo com sua faixa salarial vamos prosseguir e analisar seu tipo de conta;");
             Console.WriteLine("Pressione enter para iniciar o processo.");
             Console.ReadKey();
         }
-
         public void CadastrarCliente(string nome, string cpf, string email, long telefone, string endereco, string logradouro)
         {
             this.Nome = nome;
@@ -27,7 +27,11 @@ namespace PBanco_Morangao
         }
         public void CadastrarCliente()
         {
-            Console.Write("Insira de acordo com o solicitado \nNome: ");
+            Console.WriteLine("Informe seus: ");
+            Console.WriteLine("-----------------------------");
+            Console.WriteLine("|       Dados Pessoais      |");
+            Console.WriteLine("-----------------------------");
+            Console.Write("Nome: ");
             this.Nome = Console.ReadLine();
             Console.Write("CPF (Cadastro de Pessoa Fisica) no modelo XXX-XXX-XXX-XX: ");
             this.Cpf = (Console.ReadLine());
@@ -49,7 +53,9 @@ namespace PBanco_Morangao
                 Console.Write("Valor informado invalido, informe seu salario novamente: ");
                 this.FaixaSalarial = float.Parse(Console.ReadLine());
             }
-            Console.WriteLine("Correto, agora sobre seu endereço: ");
+            Console.WriteLine("-----------------------------");
+            Console.WriteLine("|          Endereço:        |");
+            Console.WriteLine("-----------------------------");
             Console.Write("Informe seu Bairro: ");
             this.Endereco.Bairro = Console.ReadLine();
             Console.Write("Informe sua rua ou avenida: ");

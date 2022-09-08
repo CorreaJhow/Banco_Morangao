@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using System.Threading;
 
 namespace PBanco_Morangao
@@ -20,8 +19,10 @@ namespace PBanco_Morangao
             while (escolha == 0 || escolha > 3)
             {
                 Console.Clear();
-                Console.WriteLine("Bem-vindo ao sistema do Banco Morangão");
-                Console.WriteLine("Escolha seu proximo passo: \n[1] Se você ja for cliente \n[2] Se você não for cliente \n[3] Finalizar o programa");
+                CabecalhoDoBanco();
+                Console.WriteLine("Seja bem vindo ao nosso banco!!!");
+                Console.WriteLine("");
+                Console.WriteLine("Escolha sua proxima ação:  \n[1] Se você ja for cliente \n[2] Se você não for cliente \n[3] Finalizar o programa");
                 escolha = int.Parse(Console.ReadLine());
                 while (escolha < 1 && escolha > 3)
                 {
@@ -34,6 +35,7 @@ namespace PBanco_Morangao
                     do
                     {
                         Console.Clear();
+                        CabecalhoDoBanco();
                         Console.WriteLine("Opção: 'Já sou Cliente' ");
                         Console.WriteLine("Informe seu CPF para procurarmos em nosso Banco de Dados: ");
                         string documentoValidacao = Console.ReadLine();
@@ -54,14 +56,14 @@ namespace PBanco_Morangao
                         }
                         else
                         {
-                            Console.WriteLine(buscaCliente.Nome + "Voce gostaria de: \n[1] Acessar sua conta \n[2] Excluir sua conta");
+                            Console.WriteLine(buscaCliente.Nome + ", voce gostaria de: \n[1] Acessar sua conta \n[2] Excluir sua conta");
                             int acaoCliente = int.Parse(Console.ReadLine());
                             while (acaoCliente < 1 && acaoCliente > 2)
                             {
                                 Console.Clear();
                                 Console.WriteLine("O valor informado é inválido, informe novamente. ");
                                 Console.WriteLine("");
-                                Console.WriteLine(buscaCliente.Nome + "Voce gostaria de: \n[1] Acessar sua conta \n[2] Excluir sua conta");
+                                Console.WriteLine(buscaCliente.Nome + ", voce gostaria de: \n[1] Acessar sua conta \n[2] Excluir sua conta");
                                 acaoCliente = int.Parse(Console.ReadLine());
                             }
                             if (acaoCliente == 1)
@@ -102,35 +104,40 @@ namespace PBanco_Morangao
                 else if (escolha == 2)
                 {
                     Console.Clear();
-                    Console.WriteLine("Seja bem vindo ao *BANCO MORANGAO* \nSiga o passo a passo e se cadastre em nossa rede: ");
-                    Console.WriteLine("-------------------------------------------------------------------------------------------------------------------");
-                    Console.WriteLine("***ATENÇÃO*** fique despreocupado, nosso sistema irá te direcionar, então apenas siga o passo a passo ***ATENÇÃO***");
-                    Console.WriteLine("-------------------------------------------------------------------------------------------------------------------");
+                    Console.WriteLine("════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════");
+                    Console.WriteLine("      #ATENÇÃO# fique despreocupado, nosso sistema irá te direcionar, então apenas siga o passo a passo #ATENÇÃO#"       );
+                    Console.WriteLine("════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════");
                     PressioneParaContinuar();
                     Console.Clear();
-
-
                     Cliente ClienteBanco = new Cliente();
                     ClienteBanco.Endereco = new Endereco();
+                    CabecalhoDoBanco();
                     ClienteBanco.CadastrarCliente();
                     listaClientes.Add(ClienteBanco);
                     Console.Clear();
-                    Console.WriteLine("Os dados foram recebidos com SUCESSO! ");
-                    Console.WriteLine("alguns dados obtidos no cadastro foram: ");
+                    CabecalhoDoBanco();
+                    Console.WriteLine("Os foram armazenados com sucesso!");
+                    Console.WriteLine("alguns desses dados no cadastro são: ");
                     Console.WriteLine(ClienteBanco.ToString());
+                    PressioneParaContinuar();
                     ClienteBanco.Conta = new Conta();
                     Console.Clear();
-                    Console.WriteLine("Vamos seguir com o sistema");                 
+                    CabecalhoDoBanco();
+                    Console.WriteLine("Sisma em andamento ");
                     Console.WriteLine("O Gerente esta analisando a situação...");
                     Thread.Sleep(2500);
                     Agencia agencia = new Agencia();
                     agencia.NumeroAgencia = 100;
                     bool verificarAutorizacao = gerente.AutorizarAberturaConta(ClienteBanco.FaixaSalarial, agencia.NumeroAgencia); ;
                     ClienteBanco.Conta.LimiteChequeEspecial = (ClienteBanco.FaixaSalarial / 4);
-
+                    PressioneParaContinuar();
                     if (verificarAutorizacao)
                     {
+                        Console.Clear();
+                        CabecalhoDoBanco();
                         ClienteBanco.SolicitarAberturaConta();
+                        Console.Clear();
+                        CabecalhoDoBanco();
                         Console.WriteLine("Nosso funcionario " + agente.Nome + " está analisando o tipo de conta...");
                         Thread.Sleep(2000);
                         ClienteBanco.Conta.TipoConta = agente.AvaliarTipoConta(ClienteBanco.FaixaSalarial);
@@ -154,15 +161,21 @@ namespace PBanco_Morangao
                 }
             }
         }
-
+        public static void CabecalhoDoBanco()
+        {
+            Console.WriteLine("════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════");
+            Console.WriteLine("                                                  Banco Morangão                                                        ");
+            Console.WriteLine("════════════════════════════════════════════════════════════════════════════════════════════════════════════════════════");
+        }
         private static void MenuContaCorrente(ref int escolha, ref bool saida, List<string> listaExtratoCC, List<string> listaExtratoP, Gerente gerente, Conta_Poupanca contaPoupanca, Cliente ClienteBanco)
         {
             do
             {
+                saida = true;
                 Console.Clear();
-                MargemContaCorrente();
+                CabecalhoDoBanco();
                 Console.WriteLine(ClienteBanco.Nome + ", vai um morango? ");
-                Console.WriteLine("Numero da conta: " + ClienteBanco.Telefone * 2);
+                Console.WriteLine("Numero da Conta corrente: " + ClienteBanco.Telefone * 2);
                 Console.WriteLine("Conta do tipo: " + ClienteBanco.Conta.TipoConta);
                 Console.WriteLine("Menu de ações: \n[1] Consultar Saldo\n[2] Saque\n[3] Deposito\n[4] Transferir Valor\n[5] Solicitar Emprestimo\n[6] Consultar Extrato\n[7] Realizar Pagamentos\n[8] Ver limite de Cheque Especial " +
                     "\n[9] Acessar cartão de Credito\n[10] Acessar Conta Poupança\n[11] Voltar ao Menu Inicial.");
@@ -177,12 +190,14 @@ namespace PBanco_Morangao
                 if (escolhaAcao == 1)
                 {
                     Console.Clear();
+                    CabecalhoDoBanco();
                     ClienteBanco.Conta.ConsultarSaldo(ClienteBanco.Conta.SaldoContaCorrente, ClienteBanco.Nome);
                     PressioneParaContinuar();
                 }
                 else if (escolhaAcao == 2)
                 {
                     Console.Clear();
+                    CabecalhoDoBanco();
                     Console.WriteLine("Voce escolheu a opção: Saque.\nSeu saldo atual é de: " + ClienteBanco.Conta.SaldoContaCorrente + " moranguinhos, e cheque especial de: " + ClienteBanco.Conta.LimiteChequeEspecial + " Moranguinhos.");
                     Console.WriteLine("Insira o valor que deseja sacar: ");
                     float valorSaque = float.Parse(Console.ReadLine());
@@ -208,12 +223,12 @@ namespace PBanco_Morangao
                 else if (escolhaAcao == 3)
                 {
                     Console.Clear();
+
                     Console.WriteLine("Voce escolheu a opção: Deposito.");
                     Console.WriteLine("Insira o valor que deseja depositar: ");
                     float valorDeposito = float.Parse(Console.ReadLine());
                     while (valorDeposito <= 0)
                     {
-                        Console.Clear();
                         Console.WriteLine("Opçao escolhida inválida!");
                         Console.WriteLine("");
                         Console.WriteLine("Insira novamente o valor que deseja depositar: ");
@@ -232,6 +247,7 @@ namespace PBanco_Morangao
                 else if (escolhaAcao == 5)
                 {
                     Console.Clear();
+                    CabecalhoDoBanco();
                     Console.WriteLine("Voce escolheu a opção: Solicitar Emprestimo\nEntraremos em contato com o gerente: " + gerente.Nome + " para verificar tal situação.");
                     ClienteBanco.Conta.SolicitarEmprestimo();
                     float valorEmprestimo = gerente.AutorizarEmprestimo(ClienteBanco.FaixaSalarial, gerente.Nome);
@@ -239,7 +255,6 @@ namespace PBanco_Morangao
                     int opc = int.Parse(Console.ReadLine());
                     while (opc != 1 && opc != 2)
                     {
-                        Console.Clear();
                         Console.WriteLine("Valor inválido inserido!");
                         Console.WriteLine("");
                         Console.WriteLine("Voce gostaria de realizar o emprestimo? pensem bem. \n[1] Sim, eu amo emprestimos \n[2] Nao, odeio morangos");
@@ -258,12 +273,15 @@ namespace PBanco_Morangao
                 }
                 else if (escolhaAcao == 6)
                 {
+                    Console.Clear();
+                    CabecalhoDoBanco();
                     ClienteBanco.Conta.ConsultarExtrato(listaExtratoCC, ClienteBanco.Conta.SaldoContaCorrente, ClienteBanco.Conta.LimiteChequeEspecial);
                     PressioneParaContinuar();
                 }
                 else if (escolhaAcao == 7)
                 {
                     Console.Clear();
+                    CabecalhoDoBanco();
                     Console.WriteLine("Voce escolheu a opção: Realizar Pagamento.");
                     Console.WriteLine("Por favor, informe o numero da conta a ser paga: ");
                     int numeroConta = int.Parse(Console.ReadLine());
@@ -298,6 +316,7 @@ namespace PBanco_Morangao
                 else if (escolhaAcao == 8)
                 {
                     Console.Clear();
+                    CabecalhoDoBanco();
                     Console.WriteLine("Voce escolheu a opção: ver limite de cheque especial.");
                     ClienteBanco.Conta.VerLimiteChequeEspecial(ClienteBanco.FaixaSalarial);
                     PressioneParaContinuar();
@@ -305,7 +324,7 @@ namespace PBanco_Morangao
                 else if (escolhaAcao == 9)
                 {
                     Console.Clear();
-                    Console.WriteLine("Função em desenvolvimento ainda, retornará em breve! ");
+                    Console.WriteLine("Função em desenvolvimento, retorno em breve! ");
                     PressioneParaContinuar();
                 }
                 else if (escolhaAcao == 10)
@@ -322,27 +341,18 @@ namespace PBanco_Morangao
                 }
             } while (saida);
         }
-
-        private static void MargemContaCorrente()
-        {
-            Console.WriteLine("-------------------------------------------------------------------------------------------------------------------");
-            Console.WriteLine("|                                      BANCO MORANGAO - Conta Corrente                                            |");
-            Console.WriteLine("-------------------------------------------------------------------------------------------------------------------");
-        }
-
         public static void PressioneParaContinuar()
         {
-            Console.WriteLine("Pressione alguma tecla para prosseguir...");
+            Console.WriteLine("Pressione alguma tecla para prosseguir...");         
             Console.ReadKey();
         }
-
         public static void MenuPoupanca(float saldoPoupanca, Cliente PrimeiroCliente, Conta_Poupanca contaPoupanca, Conta conta, List<string> listaExtratoP)
         {
             bool SaidaMenu = true;
             do
             {
                 Console.Clear();
-                MargemContaPoupanca();
+                CabecalhoDoBanco();
                 Console.WriteLine("Numero da Conta Poupança: " + (PrimeiroCliente.FaixaSalarial * 1428));
                 Console.WriteLine("Conta poupança de: " + PrimeiroCliente.Nome);
                 Console.WriteLine("Saldo atual: " + contaPoupanca.SaldoContaPoupanca);
@@ -357,6 +367,7 @@ namespace PBanco_Morangao
                 if (escolhaAcao == 1)
                 {
                     Console.Clear();
+                    CabecalhoDoBanco();
                     Console.WriteLine("Voce escolheu a opção: Resgatar valor.");
                     Console.WriteLine("Digite um valor à ser resgatado para sua Conta Corrente: ");
                     float valoResgate = float.Parse(Console.ReadLine());
@@ -364,7 +375,6 @@ namespace PBanco_Morangao
                     {
                         Console.WriteLine("Valor inválido de Resgate, informe um valor positivo!");
                         valoResgate = float.Parse(Console.ReadLine());
-
                     }
                     if (contaPoupanca.SaldoContaPoupanca - valoResgate < 0)
                     {
@@ -381,12 +391,15 @@ namespace PBanco_Morangao
                 }
                 else if (escolhaAcao == 2)
                 {
+                    Console.Clear();
+                    CabecalhoDoBanco();
                     conta.ConsultarExtrato(listaExtratoP, contaPoupanca.SaldoContaPoupanca, contaPoupanca.LimiteChequeEspecial);
                     PressioneParaContinuar();
                 }
                 else if (escolhaAcao == 3)
                 {
                     Console.Clear();
+                    CabecalhoDoBanco();
                     Console.WriteLine("Voce escolheu a opção: Saque.");
                     Console.WriteLine("Informe o valor que deseja retirar: ");
                     float valorSaque = float.Parse(Console.ReadLine());
@@ -410,6 +423,7 @@ namespace PBanco_Morangao
                 else if (escolhaAcao == 4)
                 {
                     Console.Clear();
+                    CabecalhoDoBanco();
                     Console.WriteLine("Voce escolheu a opção: Depósito.");
                     Console.WriteLine("Insira o valor que deseja depositar: ");
                     float valorDeposito = float.Parse(Console.ReadLine());
@@ -425,17 +439,13 @@ namespace PBanco_Morangao
                 else if (escolhaAcao == 5)
                 {
                     Console.Clear();
+                    CabecalhoDoBanco();
                     Console.WriteLine("Voce escolheu a opção: voltar ao Menu da Conta Corrente.");
+                    Console.WriteLine("Voltando ao menu...");
                     Thread.Sleep(2000);
                     SaidaMenu = false;
                 }
             } while (SaidaMenu == true);
-        }
-        private static void MargemContaPoupanca()
-        {
-            Console.WriteLine("-------------------------------------------------------------------------------------------------------------------");
-            Console.WriteLine("|                                      BANCO MORANGAO - Conta Poupanca                                            |");
-            Console.WriteLine("-------------------------------------------------------------------------------------------------------------------");
         }
     }
 }

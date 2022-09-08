@@ -15,24 +15,20 @@ namespace PBanco_Morangao
         {
 
         }
-
         public void SolicitarEmprestimo()
         {
             Console.WriteLine("Solicitação de emprestimo sendo realizada...");
             Thread.Sleep(2000);
             Console.WriteLine("Solicitação enviada ao gerente!");
         }
-
         public void ConsultarExtrato(List<string> ListaExtrato, float saldo, float cheque)
         {
-            Console.Clear();
             Console.WriteLine("Voce escolheu a opção: Consultar Extrato.");
             Console.WriteLine("Seu saldo atual é : " + saldo + " Moranguinhos\nCom Cheque Especial de " + cheque + " Moranguinhos");
             Console.WriteLine("As movimentações realizadas foram:");
             Console.WriteLine("");
             ListaExtrato.ForEach(i => Console.WriteLine(i));
         }
-
         public float RealizarPagamento(float saldo, float valorPagamento)
         {
 
@@ -50,7 +46,6 @@ namespace PBanco_Morangao
             Console.WriteLine("Operação de saque realizada com sucesso!");
             return resultadoSaque;
         }
-
         public float Depositar(float saldoConta, float valorDeposito)
         {
             Console.WriteLine("Operação de deposito sendo realizada...");
@@ -64,15 +59,15 @@ namespace PBanco_Morangao
             Console.WriteLine("Voce escolheu a opção: consultar saldo.");
             Console.WriteLine("Consulta de saldo sendo realizada...");
             Thread.Sleep(2000);
-            Console.WriteLine("Querido " + nome + ", no momento seu saldo é de R$" + saldo + " Moranguinhos.\nCom Cheque especial de: " + LimiteChequeEspecial + " moranguinhos");
+            Console.WriteLine("Querido " + nome + ", no momento seu saldo é de R$ " + saldo + " Moranguinhos.\nCom Cheque especial de R$ " + LimiteChequeEspecial + " moranguinhos");
         }
         public void VerLimiteChequeEspecial(double salario)
         {
             Console.WriteLine("O seu limite de cheque é especial é definido de acordo com seu salario.");
-            Console.WriteLine("com o salario de RS$" + salario + " Moranguinhos.");
+            Console.WriteLine("com o salario de RS $" + salario + " Moranguinhos.");
             Console.WriteLine("Consulta de Cheque especial sendo realizada...");
             Thread.Sleep(2000);
-            Console.WriteLine("O valor do seu cheque especial é de: " + (salario * 0.25) + " Moranguinhos");
+            Console.WriteLine("O valor do seu cheque especial é de R$ " + (salario * 0.25) + " Moranguinhos");
         }
     }
 }
